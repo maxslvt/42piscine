@@ -6,7 +6,7 @@
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 17:47:29 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/12 18:10:58 by msolet-l         ###   ########.fr       */
+/*   Updated: 2023/07/13 10:51:18 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_fibonacci(int index)
 		return (-1);
 	if (index == 0)
 		return (0);
-	if (index > 1)
+	if (index == 1)
 		return (1);
 	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
