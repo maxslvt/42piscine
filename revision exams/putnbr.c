@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotone.c                                           :+:      :+:    :+:   */
+/*   putnbr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 18:52:17 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/13 21:54:14 by msolet-l         ###   ########.fr       */
+/*   Created: 2023/07/14 21:09:47 by msolet-l          #+#    #+#             */
+/*   Updated: 2023/07/14 22:45:48 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void main(int ac, char **av)
+void	ft_putnbr(int nbr)
 {
-	int i;
-
-	i=0;
-	while (av[1][i])
+	long nb = nbr;
+	if (nb < 0)
 	{
-		if (av[1][i] >= 'a' && av[1][i] < 'z')
-		{
-			char test = av[1][i] + 1;
-			write(1,&test,1);
-		}
-		else if (av[1][i] >= 'A' && av[1][i] < 'Z')
-		{
-			char test = av[1][i] + 1;
-			write(1,&test,1);
-		}
-		else if (av[1][i] == 'Z' || av[1][i] == 'z')
-		{
-			char test = av[1][i] - 25;
-			write(1,&test,1);
-		}
-		else{write(1,av[1] + i,1);}
-		i++;
+		nb = -nb;
+		write(1,"-",1);
 	}
+	if (nb >= 9)
+	{
+		ft_putnbr(nb / 10);
+	}
+	nb %= 10;
+	char unit = '0' + nb;
+	write(1, &unit, 1);
+}
+
+int main()
+{
+	ft_putnbr(-2147483648);
 }

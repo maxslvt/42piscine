@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotone.c                                           :+:      :+:    :+:   */
+/*   ex5exam1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 18:52:17 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/13 21:54:14 by msolet-l         ###   ########.fr       */
+/*   Created: 2023/07/14 09:58:17 by msolet-l          #+#    #+#             */
+/*   Updated: 2023/07/14 10:07:26 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void main(int ac, char **av)
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+int main(int ac, char **av)
 {
 	int i;
 
-	i=0;
+	i = 0;
 	while (av[1][i])
 	{
-		if (av[1][i] >= 'a' && av[1][i] < 'z')
+		if (i % 3 == 0)
 		{
-			char test = av[1][i] + 1;
-			write(1,&test,1);
+			write(1, "5", 1);
 		}
-		else if (av[1][i] >= 'A' && av[1][i] < 'Z')
+		else if (i % 5 == 0)
 		{
-			char test = av[1][i] + 1;
-			write(1,&test,1);
-		}
-		else if (av[1][i] == 'Z' || av[1][i] == 'z')
-		{
-			char test = av[1][i] - 25;
-			write(1,&test,1);
+			write(1, "3", 1);
 		}
 		else{write(1,av[1] + i,1);}
 		i++;

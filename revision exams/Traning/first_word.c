@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotone.c                                           :+:      :+:    :+:   */
+/*   first_word.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 18:52:17 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/13 21:54:14 by msolet-l         ###   ########.fr       */
+/*   Created: 2023/07/14 10:08:58 by msolet-l          #+#    #+#             */
+/*   Updated: 2023/07/14 14:20:08 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void main(int ac, char **av)
+void	ft_putchar(char c)
 {
-	int i;
+	write(1, &c, 1);
+}
 
-	i=0;
-	while (av[1][i])
+void ft_first_word(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && str[i] != ' ' && str[i] != '\t')
 	{
-		if (av[1][i] >= 'a' && av[1][i] < 'z')
-		{
-			char test = av[1][i] + 1;
-			write(1,&test,1);
-		}
-		else if (av[1][i] >= 'A' && av[1][i] < 'Z')
-		{
-			char test = av[1][i] + 1;
-			write(1,&test,1);
-		}
-		else if (av[1][i] == 'Z' || av[1][i] == 'z')
-		{
-			char test = av[1][i] - 25;
-			write(1,&test,1);
-		}
-		else{write(1,av[1] + i,1);}
+		ft_putchar(str[i]);
 		i++;
 	}
+	write(1, "\n", 1);
+
+}
+
+int	main(int ac, char **av)
+{
+	ft_first_word(av[1]);
 }
