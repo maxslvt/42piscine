@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotone.c                                           :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 10:30:00 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/14 10:39:10 by msolet-l         ###   ########.fr       */
+/*   Created: 2023/07/17 19:30:56 by msolet-l          #+#    #+#             */
+/*   Updated: 2023/07/17 19:35:31 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void ft_rotone(char *str)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (str[i])
+	while (i < n && src[i])
 	{
-		if (str[i] >= 'a' && str[i] < 'z')
-		{
-			char t = str[i] + 1;
-			write(1, &t, 1);
-		}
+		dest[i] = src[i];
 		i++;
-		/*
-			Same for 'A' 'Z' ...
-		*/
 	}
-}
-
-int main(int ac, char **av)
-{
-	ft_rotone(av[1]);
+	
 }

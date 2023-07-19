@@ -6,7 +6,7 @@
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 21:09:47 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/14 22:45:48 by msolet-l         ###   ########.fr       */
+/*   Updated: 2023/07/17 15:00:54 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr(int nbr)
 {
-	long nb = nbr;
+	long	nb = nbr;
 	if (nb < 0)
 	{
 		nb = -nb;
@@ -32,4 +32,37 @@ void	ft_putnbr(int nbr)
 int main()
 {
 	ft_putnbr(-2147483648);
+}
+
+
+#include <unistd.h>
+
+void	ft_putchar(int c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	int		div;
+	int		mod;
+
+	div = nb / 10;
+	mod = nb % 10;
+
+	if (div)
+		ft_putnbr(div);
+	if (nb < 0)
+	{
+		if (!div)
+			ft_putchar('-');
+		mod = -mod;
+	}
+	ft_putchar(mod + '0');
+}
+
+int		main(void)
+{
+	ft_putnbr(2147483647);
+	return (0);
 }

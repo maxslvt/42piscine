@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotone.c                                           :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 10:30:00 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/14 10:39:10 by msolet-l         ###   ########.fr       */
+/*   Created: 2023/07/17 15:43:57 by msolet-l          #+#    #+#             */
+/*   Updated: 2023/07/17 15:58:22 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_rotone(char *str)
+void	ft_putchar(char c)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= 'a' && str[i] < 'z')
-		{
-			char t = str[i] + 1;
-			write(1, &t, 1);
-		}
-		i++;
-		/*
-			Same for 'A' 'Z' ...
-		*/
-	}
+	write(1, &c, 1);
 }
 
-int main(int ac, char **av)
+void	ft_print_comb2(void)
 {
-	ft_rotone(av[1]);
+	int	a;
+	int	b;
+
+	a = 0;
+	b = 1;
+	while (a < 99)
+	{
+		ft_putchar('0' + a / 10);
+		ft_putchar('0' + a % 10);
+		ft_putchar(' ');
+		ft_putchar('0' + b / 10);
+		ft_putchar('0' + b % 10);
+		if (a < 98)
+		{
+			write(1, ", ", 2);
+		}
+		if (b < 99)
+		{
+			b = ++b + 1;
+		}
+	}
 }

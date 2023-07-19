@@ -32,7 +32,7 @@ int	ft_char_flag(char c)
 	else if (c == '-')
 		return (4);
 	else
-		return (0);
+		return (0);  
 }
 
 int	ft_atoi(char *str)

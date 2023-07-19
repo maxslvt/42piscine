@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotone.c                                           :+:      :+:    :+:   */
+/*   ulstr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 10:30:00 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/14 10:39:10 by msolet-l         ###   ########.fr       */
+/*   Created: 2023/07/18 21:51:55 by msolet-l          #+#    #+#             */
+/*   Updated: 2023/07/18 22:00:59 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_rotone(char *str)
+int	main(int ac, char **av)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (str[i])
+	if (ac == 2)
 	{
-		if (str[i] >= 'a' && str[i] < 'z')
+		while (av[1][i])
 		{
-			char t = str[i] + 1;
-			write(1, &t, 1);
+			if (av[1][i] >= 'a' && av[1][i] <= 'z')
+			{
+				av[1][i] -= 32;
+			}
+			else if (av[1][i] >= 'A' && av[1][i] <= 'Z')
+			{
+				av[1][i] += 32;
+			}
+			write(1, &av[1][i], 1);
+			i++;
 		}
-		i++;
-		/*
-			Same for 'A' 'Z' ...
-		*/
 	}
-}
-
-int main(int ac, char **av)
-{
-	ft_rotone(av[1]);
+	write(1, "\n", 1);
+	return (0);
 }

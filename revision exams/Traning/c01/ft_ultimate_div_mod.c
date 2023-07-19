@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotone.c                                           :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 10:30:00 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/14 10:39:10 by msolet-l         ###   ########.fr       */
+/*   Created: 2023/07/17 17:07:42 by msolet-l          #+#    #+#             */
+/*   Updated: 2023/07/17 17:09:42 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void ft_rotone(char *str)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	int i;
+	int	ta;
+	int	tb;
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= 'a' && str[i] < 'z')
-		{
-			char t = str[i] + 1;
-			write(1, &t, 1);
-		}
-		i++;
-		/*
-			Same for 'A' 'Z' ...
-		*/
-	}
-}
+	ta = a / b;
+	tb = a % b;
 
-int main(int ac, char **av)
-{
-	ft_rotone(av[1]);
+	a = ta;
+	b = tb;
 }

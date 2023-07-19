@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotone.c                                           :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 10:30:00 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/14 10:39:10 by msolet-l         ###   ########.fr       */
+/*   Created: 2023/07/17 17:27:30 by msolet-l          #+#    #+#             */
+/*   Updated: 2023/07/17 19:12:48 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void ft_rotone(char *str)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	int i;
+	int		i;
+	int		j;
+	int		temp;
 
 	i = 0;
-	while (str[i])
+	while (i < size)
 	{
-		if (str[i] >= 'a' && str[i] < 'z')
+		j = 0;
+		while (j < size)
 		{
-			char t = str[i] + 1;
-			write(1, &t, 1);
+			if (tab[i] < tab[j])
+			{
+				temp = tab[i];
+				tab[i] = tab[j];
+				tab[j] = temp;
+			}
+			j++;
 		}
 		i++;
-		/*
-			Same for 'A' 'Z' ...
-		*/
 	}
-}
-
-int main(int ac, char **av)
-{
-	ft_rotone(av[1]);
 }
