@@ -1,0 +1,40 @@
+#include<stdlib.h>
+
+#include <stdio.h>
+char *ft_itoa(int n)
+{
+	int i = 0;
+	int size = 0;
+	long nb = n;
+	if (nb < 0)
+	{
+		size++;
+		nb *= -1;
+	}
+	while (nb > 0)
+	{
+		nb /= 10;
+		size++;
+	}
+	char *tab = malloc(sizeof(char) * size +1);
+	nb = n;
+	if (nb < 0)
+	{
+		nb *= -1;
+		tab[0] = '-';
+	}
+	while (nb > 0)
+	{
+		tab[size-i-1] = '0' + nb % 10;
+		nb /= 10;
+		i++;
+	}
+	tab[size + 1] = '\0';
+	return tab;
+}
+
+
+void main(int ac, char **av)
+{
+	printf("%s", ft_itoa(atoi(av[1])));
+}

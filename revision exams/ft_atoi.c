@@ -6,7 +6,7 @@
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 17:49:30 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/13 21:52:54 by msolet-l         ###   ########.fr       */
+/*   Updated: 2023/07/20 08:54:18 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,30 @@ int	ft_char_flag(char c)
 	else if (c == '-')
 		return (4);
 	else
-		return (0);  
+		return (0);
 }
 
 int	ft_atoi(char *str)
 {
 	int	nb;
 	int	sign;
-	int	idx;
+	int	i;
 
 	nb = 0;
 	sign = 1;
-	idx = 0;
-	while (ft_char_flag(str[idx]) == 2) // tant que les caracteres sont des espaces
-		idx++;
-	while (ft_char_flag(str[idx]) >= 3)// tant que les premiers caracteres sont de + ou des -
+	i = 0;
+	while (ft_char_flag(str[i]) == 2) // tant que les caracteres sont des espaces
+		i++;
+	while (ft_char_flag(str[i]) >= 3)// tant que les premiers caracteres sont de + ou des -
 	{
-		if (ft_char_flag(str[idx]) == 4)// si il s'agit d'un -
+		if (ft_char_flag(str[i]) == 4)// si il s'agit d'un -
 			sign *= -1;					// inverser le signe
-		idx++;
+		i++;
 	}
-	while (ft_char_flag(str[idx]) == 1)// tant que les caracteres sont des chiffres
+	while (ft_char_flag(str[i]) == 1)// tant que les caracteres sont des chiffres
 	{
-		nb = nb * 10 + (str[idx] - 48);// nb est multiplie par 10 et on ajoute le chiffre
-		idx++;
+		nb = nb * 10 + (str[i] - 48);// nb est multiplie par 10 et on ajoute le chiffre
+		i++;
 	}
 	return (nb * sign);// onretourne le nombre avec le signe
 }

@@ -6,7 +6,7 @@
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:11:18 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/13 10:53:20 by msolet-l         ###   ########.fr       */
+/*   Updated: 2023/07/15 12:39:05 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@ int	ft_sqrt(int nb)
 {
 	int	i;
 
-	if (nb < 1)
+	i = 1;
+	if (nb <= 0)
 		return (0);
-	if (nb == 1)
-		return (1);
-	i = 2;
-	while (i < nb)
-	{
-		if (i * i == nb)
-			return (i);
+	while (i * i < nb && i < 46341)
 		i++;
-	}
+	if (i * i == nb)
+		return (i);
 	return (0);
 }

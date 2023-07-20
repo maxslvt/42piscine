@@ -6,7 +6,7 @@
 /*   By: msolet-l <msolet-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:08:58 by msolet-l          #+#    #+#             */
-/*   Updated: 2023/07/14 14:20:08 by msolet-l         ###   ########.fr       */
+/*   Updated: 2023/07/20 09:08:31 by msolet-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void ft_first_word(char *str)
+void	ft_first_word(char *str)
 {
 	int	i;
 
