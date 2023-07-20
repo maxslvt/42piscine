@@ -1,11 +1,12 @@
-int ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int i;
 	int res;
-	res = 0;
 	int sign;
-	sign = 1;
+
 	i = 0;
+	res = 0;
+	sign = 1;
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -14,19 +15,8 @@ int ft_atoi(char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res = res *10 + str[i] - '0';
+		res = res * 10 + str[i] - '0';
 		i++;
 	}
 	return (res * sign);
-}
-
-
-
-
-#include<stdio.h>
-#include <stdlib.h>
-void main(int ac, char **str)
-{
-	printf("%d\n", ft_atoi(str[1]));
-	printf("%d", atoi(str[1]));
 }
